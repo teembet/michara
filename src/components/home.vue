@@ -10,14 +10,14 @@
          </v-flex>
          <div>
             <h1 class="home-header">We deliver to your doorstep</h1>
-         <p class="home-sub-header">Order tasty foods online from your favorite restaurants</p>
+         <p class="home-sub-header">Order tasty foods and drinks online from your favorite restaurants</p>
           <v-flex xs12 sm12 md12>
           <v-text-field
             label="Hii there, Looking for something ??"
             color="#f25d13"
           ></v-text-field>
         </v-flex>
-        <v-btn color="#f25d13" dark depressed large>SEARCH</v-btn>
+        <v-btn color="#f25d13" dark depressed large>make an order</v-btn>
         
          </div>
         
@@ -34,7 +34,7 @@
 
 
      <div class="home-res">
-    <strong>TOP RESTAURANTS</strong> 
+    <strong>TOP DISHES</strong> 
        </div>
 
           <div class="home-con">
@@ -97,7 +97,7 @@
          </v-layout>
      </div> 
 
-         <div class="res-banner" >
+         <!-- <div class="res-banner" >
          <h1 class="res-header">Are you a Restaurant owner ??</h1>
          <p class="res-sub-header">Join lots other restaurants who benefit 
 from having their menus on Aries</p>
@@ -105,7 +105,7 @@ from having their menus on Aries</p>
    <router-link to="/help" >       <v-btn style = "color:#f25d13" color="white" large depressed>Get Started</v-btn> </router-link>
   
 </div>
-     </div> 
+     </div>  -->
     <center> <img src="../assets/food2.png" alt="" class="footer-img"></center>
   </div>
 </template>
@@ -117,6 +117,20 @@ export default {
 };
 </script>
 <style scoped>
+@keyframes floating{
+    from {
+        -webkit-transform:translate(0, 0px);
+        transform:translate(0, 0px);
+    }
+    65% {
+        -webkit-transform:translate(0, 50px);
+        transform:translate(0, 25px);
+    }
+    to {
+        -webkit-transform: translate(0, -0px);
+        transform: translate(0, -0px);
+    }
+}
 .sales-anim {height:400px;}
 .anim-pack {text-align: center;}
 .footer-img {height:350px}
@@ -135,7 +149,10 @@ export default {
 .res-description {font-size:13px;color: #8a8a8a;display:block;}
 .res-post {padding-right: 10px; padding-left : 10px;margin-top: 30px;margin-bottom: 30px;}
 .res-card {border-radius: 20px;box-shadow: 1px 5px 30px -3px #e6e6e6;}
-.home-image {height:500px;}
+.home-image {height:500px;
+ -webkit-animation: floating 2800ms infinite ease-in-out;
+            animation: floating 2800ms infinite ease-in-out;
+}
 .home-pack {background: white; }
  .home-div {padding-left:0px; padding-right: 0px;}
  .home-header {font-size:43px;color: #f25d13;}
@@ -183,7 +200,10 @@ export default {
 .res-post {padding-right: 10px; padding-left : 10px;margin-top: 30px;margin-bottom: 30px;}
 .res-card {border-radius: 20px;box-shadow: 1px 5px 30px -3px #e6e6e6;}
 .home-pack {background: white; }
-.home-image {height:250px;}
+.home-image {height:250px;
+    -webkit-animation: floating 2800ms infinite ease-in-out;
+            animation: floating 2800ms infinite ease-in-out;
+}
  .home-div {padding-left:20px; padding-right: 20px;}
  .home-header {font-size:35px;color: #f25d13;}
  .home-sub-header{font-size:14px;color: #8a8a8a;}
@@ -207,5 +227,6 @@ export default {
   border-radius: 30px;
 }
 }
+
 </style>
 

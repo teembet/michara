@@ -3,7 +3,7 @@
     <v-toolbar color="#fff" height="80" text flat>
       <router-link to="/">
         <v-toolbar-title>
-          <img src="../assets/michara.png" class="logo" alt="logo" width="50%" />
+          <img src="../assets/michara.png" class="logo" alt="logo-michara" style="width:170px;height:auto;" />
         </v-toolbar-title>
       </router-link>
       <v-spacer></v-spacer>
@@ -36,7 +36,7 @@
 
         
           <li class="nav-link">
-            <v-btn color="#3CB371" @click="dialog=true" dark class="nav-btn">Login/SignUp</v-btn>
+            <v-btn color="#3CB371" @click="dialog=true" outlined dark class="nav-btn">Login/SignUp</v-btn>
           </li>
        
         <li class="nav-link">
@@ -103,8 +103,8 @@
           <div>
             <span class="email black-text">
               <v-avatar :size="50" color="grey lighten-4">
-                <div class="photo">
-                  <img src alt width="50px" />
+                <div class="photo" style="align-self:center">
+                 <img src="../assets/user.png" class="" alt="profile" style="width:30px; height:auto"  />
                 </div>
               </v-avatar>
             </span>
@@ -138,7 +138,9 @@
           </div>
           <br />
           <div>
-            <v-btn color="#3CB371" dark class="log-btn" @click="logout">Logout</v-btn>
+            <v-btn color="#3CB371" dark class="log-btn" 
+            outlined
+            @click="logout">Logout</v-btn>
           </div>
         </div>
       </center>
