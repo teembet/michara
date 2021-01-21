@@ -2,16 +2,28 @@
   "name": "aitee",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "14.15.0"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "node server.js"
   },
   "dependencies": {
     "boxicons": "^2.0.7",
     "core-js": "^3.8.0",
     "scrollreveal": "^4.0.7",
     "typed.js": "^2.0.11",
+    "body-parser": "^1.19.0",
+    "cor": "0.0.0",
+    "express": "^4.17.1",
+    "node-sass": "^4.14.1",
+    "nodemon": "^1.19.4",
+    "path": "^0.12.7",
+    "sass-loader": "^8.0.0",
+    "serve-static": "^1.14.1",
     "vue": "^2.6.12",
     "vue-parallax": "^1.1.1",
     "vue-parallaxy": "^1.1.1",
