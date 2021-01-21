@@ -31,7 +31,7 @@
                 <div class="home__container bd-container bd-grid">
                     <div class="home__data">
                         <h1 class="home__title">Mi<span class="chara">Chara</span></h1>
-                        <vue-typed-js :backSpeed="50" :fadeOut="true" :typeSpeed="100" :loop="true" :showCursor="false" :strings="['we offer a variety of foods', 'we provide health advice']">
+                        <vue-typed-js :backSpeed="50"  :typeSpeed="100" :loop="true" :showCursor="false" :strings="['we offer a variety of foods', 'we provide health advice']">
   <h1 class="typing"></h1>
 </vue-typed-js>
                        
