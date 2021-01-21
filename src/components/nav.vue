@@ -1,8 +1,9 @@
 <template>
   <div>
+    <header class="1-header" id="header">
     <v-toolbar color="#fff" height="80" text flat>
       <router-link to="/">
-        <v-toolbar-title>
+        <v-toolbar-title class="">
           <img src="../assets/michara.png" class="logo" alt="logo-michara" style="width:170px;height:auto;" />
         </v-toolbar-title>
       </router-link>
@@ -18,28 +19,28 @@
             <p class="linka">Home</p>
           </li>
         </router-link>
-        <router-link to="/about">
+        <a href="#about" >
           <li class="nav-link">
             <p class="linka">About Us</p>
           </li>
-        </router-link>
+        </a>
         <router-link to="/menu">
           <li class="nav-link">
-            <p class="linka">Menu</p>
+            <p class="linka">Services</p>
           </li>
         </router-link>
         <router-link to="/help">
           <li class="nav-link">
-            <p class="linka">Help</p>
+            <p class="linka">Contact</p>
           </li>
         </router-link>
 
-        
+<!--         
           <li class="nav-link">
             <v-btn color="#3CB371" @click="dialog=true" outlined dark class="nav-btn">Login/SignUp</v-btn>
-          </li>
+          </li> -->
        
-        <li class="nav-link">
+        <!-- <li class="nav-link">
           <span class="email black-text">
             <div>
               <v-avatar :size="30" color="grey lighten-4">
@@ -94,9 +95,10 @@
               </v-menu>
             </div>
           </span>
-        </li>
+        </li> -->
       </ul>
     </v-toolbar>
+    </header>
     <v-navigation-drawer v-model="drawer" absolute temporary>
       <center>
         <div class="nav-mobile">
@@ -117,7 +119,7 @@
             </router-link>
           </div>
           <div class="nav-mobile-link">
-            <router-link to="/about">
+            <router-link to="#about">
               <strong>About Us</strong>
             </router-link>
           </div>
@@ -146,6 +148,7 @@
       </center>
     </v-navigation-drawer>
      <auth v-model="dialog"/>
+
   </div>
  
 </template>
@@ -322,4 +325,70 @@ export default {
     margin-left: 0px;
   }
 }
+
+.nav{
+  max-width: 1024px;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px){
+  .nav__menu{
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 0 1rem;
+    text-align: center;
+    background-color: var(--body-color);
+    transition: .4s;
+    box-shadow: 0 4px 4px rgba(0,0,0,.1);
+    border-radius: 0 0 1rem 1rem;
+    z-index: var(--z-fixed);
+  }
+}
+
+.nav__item{
+  margin-bottom: var(--mb-2) !important;
+}
+
+.nav__link, .nav__logo, .nav__toggle{
+  color: var(--text-color) !important;
+  font-weight: var(--font-medium) !important;
+}
+
+.nav__logo:hover{
+  color: var(--first-color)!important;
+}
+
+.nav__link{
+  transition: .3s !important;
+}
+
+.nav__link:hover{
+  color: var(--first-color) !important;
+}
+
+.nav__toggle{
+  font-size: 1.3rem!important;
+  cursor: pointer;
+}
+
+/* Show menu */
+.show-menu{
+  top: var(--header-height)!important;
+}
+
+/* Active menu */
+.active-link{
+  color: var(--first-color) !important;
+}
+
+/* Change background header */
+.scroll-header{
+  box-shadow: 0 2px 4px rgba(0,0,0,.1)!important;
+}
+
 </style>

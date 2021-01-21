@@ -1,48 +1,27 @@
 <template>
-  <v-app>
-    <app-nav></app-nav>
-    <v-main>
-      <router-view />
-    </v-main>
-    <app-footer></app-footer>
-    <div class="hidden-md-and-up">Active: {{ bottomNav }}</div>
+  <!-- <v-app> -->
+    <!-- <app-nav></app-nav> -->
+    <!-- <v-main> -->
+      <app-home></app-home>
+      <!-- <router-view /> -->
+    <!-- </v-main> -->
+    <!-- <app-footer></app-footer> -->
+    <!-- <div class="hidden-md-and-up">Active: {{ bottomNav }}</div> -->
 
-    <!-- <v-bottom-nav
-      :active.sync="bottomNav"
-      :value="true"
-      absolute
-      color="white"
-      style="position: fixed;"
-      class="hidden-md-and-up"
-    >
-      <v-btn color="#f25d13" flat value="recent" @click="toHome">
-        <v-icon>home</v-icon>
-      </v-btn>
-
-      <v-btn color="#f25d13" flat value="favorites" @click="toStore">
-        <v-icon>store</v-icon>
-      </v-btn>
-
-      <v-btn color="#f25d13" flat value="nearby" @click="toDash">
-        <v-icon>person</v-icon>
-      </v-btn>
-
-      <v-btn color="#f25d13" flat value="contact" @click="toHelp">
-        <v-icon>error_outline</v-icon>
-      </v-btn>
-    </v-bottom-nav> -->
-  </v-app>
+  <!-- </v-app> -->
 </template>
 
 <script>
-import nav from "./components/nav";
-import footer from "./components/Footer";
+// import nav from "./components/nav";
+import home from "./components/home"
+// import footer from "./components/Footer";
 export default {
   name: "App",
 
   components: {
-    "app-nav": nav,
-    "app-footer": footer,
+    // "app-nav": nav,
+    "app-home":home,
+    // "app-footer": footer,
   },
    data(){
     return{
@@ -52,8 +31,60 @@ export default {
 },};
 </script>
 <style>
-#app {
-  background-color: white;
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*===== VARIABLES CSS =====*/
+
+
+:root {
+  --header-height: 3rem;
+
+  /*========== Colors ==========*/
+  --first-color: #f25d13;
+  --first-color-alt: #F58D59;
+  --title-color: #393939;
+  --text-color: #707070;
+  --text-color-light: #A6A6A6;
+  --body-color: #FBFEFD;
+  --container-color: #FFFFFF;
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Poppins', sans-serif;
+  --biggest-font-size: 2.25rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== Margenes ==========*/
+  --mb-1: .5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
 }
- .v-dialog{width:auto !important}
+
+@media screen and (min-width: 768px){
+  :root{
+    --biggest-font-size: 4rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+  }
+}
 </style>
