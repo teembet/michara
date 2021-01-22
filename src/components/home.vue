@@ -13,12 +13,19 @@
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item"><a href="#home"  class="nav__link active-link" @click="linkAction()" >Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link" @click="linkAction()">About</a></li>
-                        <li class="nav__item"><a href="#services" class="nav__link" @click="linkAction()">Services</a></li>
+                        <li class="nav__item"><a href="#about"   class="nav__link" @click="linkAction()">About</a></li>
+                        <li class="nav__item"><a href="#services"  class="nav__link" @click="linkAction()">Services</a></li>
                        
-                        <li class="nav__item"><a href="#contact" class="nav__link" @click="linkAction()" >Contact us</a></li>
+                        <li class="nav__item"><a href="#contact"  class="nav__link" @click="linkAction()" >Contact us</a></li>
 
-                        <li @click="changeTheme()"><i class='bx bx-moon change-theme' id="theme-button" @click="linkAction()"></i></li>
+                        <!-- <li ><i class='bx bx-moon change-theme' id="theme-button" @click="linkAction()"></i></li> -->
+
+                        <li class="nav__item"><div class="container-d">
+  <label class="toggle">
+    <input type="checkbox" @change="changeTheme()"  id="checkbox" />
+    <span class="slider round material-icons"></span>
+  </label>
+</div></li>
                     </ul>
                 </div>
 
@@ -444,30 +451,36 @@ export default {
     
     changeTheme(){
       // Activate / deactivate the theme manually with the button
-const themeButton = document.getElementById('theme-button')
+// const themeButton = document.getElementById('theme-button')
 const darkTheme = 'dark-theme'
-const iconTheme = 'bx-sun'
+// const iconTheme = 'bx-sun'
 
 // Previously selected topic (if user selected)
+const isChecked=document.getElementById("checkbox").checked;
+
 const selectedTheme = localStorage.getItem('selected-theme')
-const selectedIcon = localStorage.getItem('selected-icon')
+// const selectedIcon = localStorage.getItem('selected-icon')
 
 // We obtain the current theme that the interface has by validating the dark-theme class
 const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'bx-moon' : 'bx-sun'
+// const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'bx-moon' : 'bx-sun'
 
-if (selectedTheme) {
+if (selectedTheme && isChecked ) {
   // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-  themeButton.classList[selectedIcon === 'bx-moon' ? 'add' : 'remove'](iconTheme)
+ document.body.classList.add(darkTheme)
+  // document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+  // themeButton.classList[selectedIcon === 'bx-moon' ? 'add' : 'remove'](iconTheme)
  
 }
+else if(selectedTheme && !isChecked){
+  document.body.classList.remove(darkTheme)}
     // Add or remove the dark / icon theme
-    document.body.classList.toggle(darkTheme)
-  themeButton.classList.toggle(iconTheme)
+    // document.body.classList.toggle(darkTheme)
+  // themeButton.classList.toggle(iconTheme)
     // We save the theme and the current icon that the user chose
     localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrentIcon())
+   
+    // localStorage.setItem('selected-icon', getCurrentIcon())
 
     },
 
@@ -556,7 +569,87 @@ destroyed(){
 }
 </script>
 
+<style lang="scss">
+:root {
+  --color-primary: #651fff;
+  --color-secondary: #a255ff;
+  --color-orange-regular: #ffc107;
+}
+
+.container-d {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // height: 100vh;
+  // width: 100vw;
+ 
+
+  transition: background 0.2s;
+}
+
+.toggle {
+  margin-top: 0.5rem;
+  position: relative;
+    width: 2.6rem;
+    height: 0.6rem;
+  border-radius: 1.5rem;
+}
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggle .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.38);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.toggle .slider:before {
+  position: absolute;
+  content: "wb_sunny";
+  font-size: 1.0rem;
+  text-align: center;
+  color: var(--color-orange-regular);
+  padding: 0.3rem;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  background: white;
+  -webkit-transition: 0.4s;
+  transition: all 0.4s;
+  z-index: 2;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.toggle input:checked + .slider {
+  background-color: var(--color-secondary);
+}
+.toggle input:checked + .slider:before {
+  transform: translate(1.6rem, -50%);
+  background-color: var(--color-primary);
+  content: "brightness_2";
+}
+.toggle .slider.round {
+  border-radius: 1.5rem;
+}
+.toggle .slider.round:before {
+  border-radius: 50%;
+}
+
+  
+
+</style>
+
+
+
 <style>
+
 .chara{
   color: #A56D65 !important;
 }
