@@ -422,7 +422,7 @@
                         <li class="footer__add">Lima - Peru</li>
                         <li class="footer__add">Jr Union #999</li>
                         <li class="footer__add">999 - 888 - 777</li>
-                        <li class="footer__add">tastyfood@email.com</li>
+                        <li class="footer__add">michara@email.com</li>
                     </ul>
                 </div>
             </div>
